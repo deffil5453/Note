@@ -1,0 +1,40 @@
+﻿@page
+@model NoteNozdrinEdition.Pages.Notes.CreateNoteModel
+@{
+    ViewData["Title"] = "CreateNote";
+}
+<h2>Создание</h2>
+<form method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div>
+        <label>Фамилия</label>
+        <input asp-for="Note.LastName" />
+        <span asp-validation-for="Note.LastName"></span>
+    </div>
+    <div>
+        <label>Имя</label>
+        <input asp-for="Note.FirstName" />
+        <span asp-validation-for="Note.FirstName"></span>
+    </div>
+    <div>
+        <label>Телефон</label>
+        <input asp-for="Note.Phone" />
+        <span asp-validation-for="Note.Phone"></span>
+    </div>
+    <div>
+        <label>Дата Рождения</label>
+        <input asp-for="Note.DateBirth" />
+        <span asp-validation-for="Note.DateBirth"></span>
+    </div>
+    <div>
+        <input type="submit" value="Создать"/>
+    </div>
+</form>
+<div>
+    <a asp-page="IndexNote">Назад к списку</a>
+</div>
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,29 @@
+﻿@page
+@model NoteNozdrinEdition.Pages.Notes.DetailsNoteModel
+@{
+    ViewData["Title"] = "DetailsNote";
+}
+
+<form method="post">
+
+    <div>
+        <label>Фамилия</label>
+        <label>@Model.Note.LastName</label>
+    </div>
+    <div>
+        <label>Имя</label>
+        <label>@Model.Note.FirstName</label>
+    </div>
+    <div>
+        <label>Телефон</label>
+        <label>@Model.Note.Phone</label>
+    </div>
+    <div>
+        <label>Дата рождения</label>
+        <label>@Model.Note.DateBirth</label>
+    </div>
+    <div>
+        <input type="hidden" asp-for="Note.Id" />
+        <input type="submit" value="назад" />
+    </div>
+</form>

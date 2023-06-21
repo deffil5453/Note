@@ -1,0 +1,44 @@
+﻿@page
+@model NoteNozdrinEdition.Pages.Notes.IndexNoteModel
+@{
+    ViewData["Title"] = "IndexNote";
+}
+<style>
+    table {
+        border-collapse: separate;
+        border-spacing: 50px;
+    }
+</style>
+
+<h2>Список всех записей</h2>
+<p>
+    <a asp-page="CreateNote">Создать запись</a>
+</p>
+<p>
+    <form method="get">
+        <input type="text" name="SearchString" value="@Model.SearchString" />
+        <button type="submit">Найти</button>
+    </form>
+</p>
+<table>
+    <tr>
+        <th>Фамилия</th>
+        <th>Имя</th>
+        <th>Телефон</th>
+        <th>Дата рождения</th>
+    </tr>
+    @foreach (var note in Model.Notes)
+    {
+        <tr>
+            <th>@note.LastName</th>
+            <th>@note.FirstName</th>
+            <th>@note.Phone</th>
+            <th>@note.DateBirth</th>
+            <th>
+                <a asp-page="DeleteNote" asp-route-id ="@note.Id">Удалить запись</a>
+                <a asp-page="DetailsNote" asp-route-id="@note.Id">Просмотреть запись</a>
+                <a asp-page="EditNote"asp-route-id="@note.Id">Редактировать запись</a>
+            </th>
+        </tr>
+    }
+</table>
